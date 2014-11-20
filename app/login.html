@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <title>rooT</title>
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+      <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+      <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+      <link rel="stylesheet" href="../libs/css/flat-ui.css">
+      <link rel="stylesheet" href="../libs/css/manager.css">
+      <noscript>
+       
+        <div id="header">
+            <span id="logo" href="#">
+                <img src="/images/layout/logo.png" alt="FarmLogs">
+            </span>
+        </div>
+        <div id="main-external">
+            <div class="blank-slate white">
+                <h3>rooT requires JavaScript</h3>
+                <p>
+                    Please <a href="http://www.enable-javascript.com/" target="_blank"> enable JavaScript in your browser</a> to continue.
+                </p>
+            </div>
+        </div>
+    </noscript>
+      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+        <div id="main-external">
+
+            <style type="text/css">
+                .error-wrapper {
+                    text-align: center;
+                    padding: 2em 2em 4em;
+                    font-weight: 500;
+                    color: hsl(220,20%,40%);
+                    font-size: 14px;
+                }
+            </style>
+
+            <div class="error-wrapper">
+                <h1>Hold On!</h1>
+                <p>Your web browser is too old to run rooT!</p>
+                <p>We recommend using the latest version of Google Chrome. Go to <a href="https://www.google.com/chrome/browser/">www.google.com/chrome</a> to learn how to upgrade.</p>
+            </div>
+
+        </div>
+    <![endif]-->
+   </head>
+   <body>
+
+      <!-- Main Content -->
+      <div id='main' class="container-fluid backgroundOverlay" id='container'>
+         
+         <div class="alert alert-danger text-center alert-over" style="display:none; margin-bottom:0px" id="error">
+            Incorrect Password or Email
+        </div>
+        
+		 <!--The Login Screen-->
+         <div id='signin'>
+
+            <div class="login-form" style="max-width: 400px;padding: 15px; margin: 0 auto;">
+            
+                <div> <img src="../libs/images/logo_blue.png" class="logoImage" ></img> </div>
+            
+                <div class="form-group">
+                  <input type="text" class="form-control login-field" value="" required autofocus placeholder="Email" id="email">
+                  <label class="login-field-icon fui-mail" for="login-name"></label>
+                </div>
+
+                <div class="form-group">
+                  <input type="password" class="form-control login-field" value="" required placeholder="Password" id="pass">
+                  <label class="login-field-icon fui-lock" for="login-pass"></label>
+                </div>
+
+                <button class="btn btn-lg btn-primary btn-block" id="signinbutton" >Log in</button>
+                <a style="display: block;font-size: 13px;margin-top: 15px;text-align: center; cursor:pointer" id="signupbutton">Don't have an account? Sign Up for Free!</a>
+                <a style="display: block;font-size: 13px;margin-top: 15px;text-align: center;" href="forgotpassword.html">Lost your password?</a>
+            </div>
+         </div>
+         
+        </div>
+		  
+      
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+      <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+      <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="../libs/js/login.js"></script>
+   </body>
+</html>

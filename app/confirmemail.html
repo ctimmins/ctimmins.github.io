@@ -1,0 +1,62 @@
+<?php
+
+if(isset($_GET['A']) && isset($_GET['B']))
+{  
+    try
+    {
+        $m = new MongoClient('mongodb://localhost');
+        $db = $m->root;
+    }
+    catch (Exception $e) 
+    {
+        echo $e->getMessage();
+    }
+    
+    $UserID = $_GET['A'];
+    $Salt = $_GET['B'];
+    
+    $collection = new MongoCollection($db, 'users');
+            
+    $filter = array('UserID'=>$UserID);
+    
+    $out = ($collection->findOne($filter));
+    
+    if($out['Salt'] == $Salt)
+    {
+        $collection->update($filter,array('$set' => array("Confirmed"=>"T")));
+        
+        echo <<<out
+        <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+        <html>
+        <head>
+        <title>Thank You</title>
+        </head>
+        <body>
+        <table height="50%" width="100%">
+        <tr>
+         <td align="center">Thank you! Your Email is now confirmed!</td>
+        </tr>
+        </table>
+        <script type="text/javascript">
+            setTimeout(function(){window.location = "login.html"}, 2000);
+        </script>
+        </body>
+        </html>
+out;
+    }
+    else
+    {
+        echo '<script type="text/javascript">';
+        echo 'window.location = "login.html";';
+        echo '</script>';
+    }
+}
+
+else
+{
+    echo '<script type="text/javascript">';
+    echo 'window.location = "login.html";';
+    echo '</script>';
+}
+
+?>
