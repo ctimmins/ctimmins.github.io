@@ -42,7 +42,7 @@
                   <li><span><a class="navbar-link" href="#contact_info">Contact</a></span></li>
                </ul>
                <ul class="nav navbar-nav navbar-left">
-                <li><span><a class="navbar-link" href="#top_page">Music</a></span></li>     
+                <li><span><a class="navbar-link" href="#music_player">Music</a></span></li>     
                </ul>
             </div>
          </div>
@@ -53,11 +53,10 @@
         <div class="title-text">
             <h1 style="color:#FFF">Chad Timmins</h1>
             
-              <h5><font style="color:#FFF;font-weight:300;font-size:0.8em/*color:#007681*/">Engineer Extraordinaire</font></h5>
-              <h5><font style="color:#FFF;font-weight:300;font-size:0.8em/*color:#007681*/">Dream Chaser</font></h5>
-              <h5><font style="color:#FFF;font-weight:300;font-size:0.8em/*color:#007681*/">Life Enthusiast</font></h5>
-              <iframe width="95%" height="250" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/60508573&amp;auto_play=true&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
-            
+            <h5><font style="color:#FFF;font-weight:300;font-size:0.8em/*color:#007681*/">Engineer Extraordinaire</font></h5>
+            <h5><font style="color:#FFF;font-weight:300;font-size:0.8em/*color:#007681*/">Dream Chaser</font></h5>
+            <h5><font style="color:#FFF;font-weight:300;font-size:0.8em/*color:#007681*/">Life Enthusiast</font></h5>
+
         </div>
 
     </div>
@@ -118,7 +117,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 text-center">
-                        <p class="text-center"><h3>Personal Projects</h3></p>
+                        <p class="text-center"><h1>Personal Projects</h1></p>
                     </div>
                 </div>
                 <div class="row">
@@ -226,6 +225,9 @@
               </div>
             </div>
         <!-- /Conserve Water -->
+        <div id ="music_player">  
+        <iframe width="100%" height="250" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/60508573&amp;auto_play=true&amp;hide_related=false&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+        </div>
     </div>
 
     <!-- Footer -->
@@ -266,6 +268,7 @@
     <!-- JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="./libs/Repo/repo.min.js"></script>
       <!--Google Analytics -->
       <script>
          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -280,30 +283,6 @@
       <script>
       
         $(document).ready(function() {
-            
-            var iOS = /(iPad|iPhone|iPod)/g.test( navigator.userAgent );
-            
-            if(iOS)
-            {
-                $("#3drender").remove();
-            }
-      
-            $('.youtubemodal').on('hidden.bs.modal', function () {
-                 document.getElementById("ytplayer").contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-            });
-            
-            
-            $("#createAccountBtn").click(function(){
-
-                    email = $('#signup_email').val();
-                    name = $('#signup_name').val();
-                    pass1 = $('#signup_pass').val();
-                    pass2 = $('#signup_pass2').val();
-                    
-                    window.location = "/app/signup.html?email="+email+"&name="+name+"&pass1="+pass1+"&pass2="+pass2+"&auto=True";
-                    
-            });
-            
             $(function() {
                 $('a[href*=#]:not([href=#])').click(function() {
                     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
