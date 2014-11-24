@@ -14,13 +14,18 @@ var soundcloud = {
 				set.push(playlist.tracks[track].id);
 			}
 			soundcloud.set = set;
+			soundcloud.setSize = playlist.track_count;
 			SC.stream("/tracks/"+soundcloud.set[0], function(track){
 				soundcloud.currentTrack = track;
+				soundcloud.currentIndex = 0;
 				track.play();
 			});
 			SC.whenStreamingReady(function(){
 				//when ready show pause button
 				$('#music_start').css("background-image", "url('./libs/images/Button-Pause-icon.png')");
+				//enable next/prev buttons
+				$('a#music_next').removeClass('disabled');
+				$('a#music_prev').removeClass('disabled');
 			});
 		});
 
@@ -37,17 +42,40 @@ var soundcloud = {
 			}
 		})
 		.on("mouseenter", function(){
-			
+			$('#music_start').css("opacity", ".75");
 		})
 		.on("mouseleave", function(){
+			$('#music_start').css("opacity", "1");
 		});
+
+		//bind next/prev button events
+		$('a#music_next').on("click", soundcloud.playNext);
+		$('a#music_prev').on("click", soundcloud.playPrev);
 	},
 
 	playNext: function() {
-
+		if(++soundcloud.currentIndex >= soundcloud.setSize){
+			soundcloud.currentIndex = 0;
+		}
+		console.log(soundcloud.currentIndex);
+		SC.stream("/tracks/"+soundcloud.set[soundcloud.currentIndex], function(track){
+			soundcloud.currentTrack.unload();
+			soundcloud.currentTrack = track;
+			track.play();
+			$('#music_start').css("background-image", "url('./libs/images/Button-Pause-icon.png')");
+		});
 	},
 
-	playPrevious: function() {
-
+	playPrev: function() {
+		if(--soundcloud.currentIndex < 0) {
+			soundcloud.currentIndex = soundcloud.setSize - 1;
+		}
+		console.log(soundcloud.currentIndex);
+		SC.stream("/tracks/"+soundcloud.set[soundcloud.currentIndex], function(track){
+			soundcloud.currentTrack.unload();
+			soundcloud.currentTrack = track;
+			track.play();
+			$('#music_start').css("background-image", "url('./libs/images/Button-Pause-icon.png')");
+		});
 	}
 }
