@@ -18,7 +18,7 @@ var soundcloud = {
 			SC.stream("/tracks/"+soundcloud.set[0], function(track){
 				soundcloud.currentTrack = track;
 				soundcloud.currentIndex = 0;
-				track.play();
+				track.play({onfinish: soundcloud.playNext});
 			});
 			SC.whenStreamingReady(function(){
 				//when ready show pause button
@@ -61,7 +61,7 @@ var soundcloud = {
 		SC.stream("/tracks/"+soundcloud.set[soundcloud.currentIndex], function(track){
 			soundcloud.currentTrack.unload();
 			soundcloud.currentTrack = track;
-			track.play();
+			track.play({onfinish: soundcloud.playNext});
 			$('#music_start').css("background-image", "url('./libs/images/Button-Pause-icon.png')");
 		});
 	},
@@ -74,7 +74,7 @@ var soundcloud = {
 		SC.stream("/tracks/"+soundcloud.set[soundcloud.currentIndex], function(track){
 			soundcloud.currentTrack.unload();
 			soundcloud.currentTrack = track;
-			track.play();
+			track.play({onfinish: soundcloud.playNext});
 			$('#music_start').css("background-image", "url('./libs/images/Button-Pause-icon.png')");
 		});
 	}
