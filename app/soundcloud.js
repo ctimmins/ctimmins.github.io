@@ -19,38 +19,36 @@ var soundcloud = {
 				soundcloud.currentTrack = track;
 				soundcloud.currentIndex = 0;
 				track.play({onfinish: soundcloud.playNext});
+				soundcloud.getInfo();
 			});
 			SC.whenStreamingReady(function(){
 				//when ready show pause button
-				$('#music_start').css("background-image", "url('./libs/images/Button-Pause-icon.png')");
+				$('a#music_start span').removeClass('glyphicon-play').addClass('glyphicon-pause');
 				//enable next/prev buttons
 				$('a#music_next').removeClass('disabled');
 				$('a#music_prev').removeClass('disabled');
+				//bind next/prev button events
+				$('a#music_next').on("click", soundcloud.playNext);
+				$('a#music_prev').on("click", soundcloud.playPrev);
 			});
 		});
 
 		//bind track play/pause button events
 		$('#music_start').on("click", function(e){
 			e.preventDefault();
+			//if current track is paused
 			if (soundcloud.currentTrack.paused) {
 				soundcloud.currentTrack.play();
-				$('#music_start').css("background-image", "url('./libs/images/Button-Pause-icon.png')");
+				$('a#music_start span').removeClass('glyphicon-play').addClass('glyphicon-pause');
 			}
 			else if (soundcloud.currentTrack.playState) {
 				soundcloud.currentTrack.pause();
-				$('#music_start').css("background-image", "url('./libs/images/playbutton3.png')");
+				$('a#music_start span').removeClass('glyphicon-pause').addClass('glyphicon-play');
 			}
-		})
-		.on("mouseenter", function(){
-			$('#music_start').css("opacity", ".75");
-		})
-		.on("mouseleave", function(){
-			$('#music_start').css("opacity", "1");
 		});
+		
 
-		//bind next/prev button events
-		$('a#music_next').on("click", soundcloud.playNext);
-		$('a#music_prev').on("click", soundcloud.playPrev);
+		
 	},
 
 	playNext: function() {
@@ -62,7 +60,7 @@ var soundcloud = {
 			soundcloud.currentTrack.unload();
 			soundcloud.currentTrack = track;
 			track.play({onfinish: soundcloud.playNext});
-			$('#music_start').css("background-image", "url('./libs/images/Button-Pause-icon.png')");
+			soundcloud.getInfo();
 		});
 	},
 
@@ -75,7 +73,13 @@ var soundcloud = {
 			soundcloud.currentTrack.unload();
 			soundcloud.currentTrack = track;
 			track.play({onfinish: soundcloud.playNext});
-			$('#music_start').css("background-image", "url('./libs/images/Button-Pause-icon.png')");
+			soundcloud.getInfo();
+		});
+	},
+
+	getInfo: function() {
+		SC.get('/tracks/'+soundcloud.set[soundcloud.currentIndex], function(track){
+			$('#music_info').text(track.title);
 		});
 	}
 }
