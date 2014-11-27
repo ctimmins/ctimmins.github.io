@@ -253,3 +253,7 @@ padding: 17px 15px 15px 15px;
     width:300px;
     margin:auto;
 }
+
+.job-title{
+  display: inline;
+}

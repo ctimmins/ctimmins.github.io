@@ -18,7 +18,7 @@ var soundcloud = {
 			SC.stream("/tracks/"+soundcloud.set[0], function(track){
 				soundcloud.currentTrack = track;
 				soundcloud.currentIndex = 0;
-				track.play({onfinish: soundcloud.playNext});
+				track.play({onfinish: soundcloud.playNext, volume: 0});
 				soundcloud.getInfo();
 			});
 			SC.whenStreamingReady(function(){
@@ -62,6 +62,7 @@ var soundcloud = {
 			track.play({onfinish: soundcloud.playNext});
 			soundcloud.getInfo();
 		});
+		$('a#music_start span').removeClass('glyphicon-play').addClass('glyphicon-pause');
 	},
 
 	playPrev: function() {
@@ -75,6 +76,7 @@ var soundcloud = {
 			track.play({onfinish: soundcloud.playNext});
 			soundcloud.getInfo();
 		});
+		$('a#music_start span').removeClass('glyphicon-play').addClass('glyphicon-pause');
 	},
 
 	getInfo: function() {
