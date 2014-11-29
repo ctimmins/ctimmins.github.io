@@ -18,7 +18,7 @@ var soundcloud = {
 			SC.stream("/tracks/"+soundcloud.set[0], function(track){
 				soundcloud.currentTrack = track;
 				soundcloud.currentIndex = 0;
-				track.play({onfinish: soundcloud.playNext, volume: 0});
+				track.play({onfinish: soundcloud.playNext});
 				soundcloud.getInfo();
 			});
 			SC.whenStreamingReady(function(){

@@ -117,7 +117,7 @@ body {
   height: 100%;
   width: 100%;
   position: relative;
-  background: url(../images/root-background-2.jpg) no-repeat center center fixed; 
+  background: url(../images/hd/city2.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -187,7 +187,7 @@ i.service-icon {
   height: 100%;
   min-height:700px;
   width: 100%;
-  background: url(../images/root-background-5.jpg) no-repeat center center fixed; 
+  background: url(../images/hd/city1.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -200,7 +200,7 @@ i.service-icon {
   height: 100%;
   min-height:700px;
   width: 100%;
-  background: url(../images/root-background-1.jpg) no-repeat center center fixed; 
+  background: url(../images/root-background-5.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -213,7 +213,7 @@ i.service-icon {
   height: 100%;
   min-height:700px;
   width: 100%;
-  background: url(../images/root-background-4.jpg) no-repeat center center fixed; 
+  background: url(../images/hd/ggbridge1.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
