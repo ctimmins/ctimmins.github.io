@@ -12,6 +12,20 @@ body {
   text-align: center;
 }
 
+.title-text h1 {
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 5.5em;
+  font-weight: 700;
+}
+
+.title-text h3 {
+  padding: 0;
+  margin: 0px;
+  font-size: 2.5em;
+  font-weight: 300;
+}
+
 .vert-text h1 {
   padding: 0;
   margin: 0;
