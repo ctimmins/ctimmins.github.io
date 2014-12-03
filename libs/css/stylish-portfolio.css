@@ -150,6 +150,10 @@ body {
   width: 100%;
   position: relative;
   display: table;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .learnmore{
@@ -289,4 +293,13 @@ i.scroll {
 
 i.scroll:hover {
   color: #0a5175;
+}
+
+div#tskills th{
+  white-space: nowrap;
+  padding-right: 15px;
+}
+
+div#tskills td {
+  
 }
